@@ -1,0 +1,9 @@
+{
+  "name": "Rabbitmq",
+  "version": "1.0.0",
+  "main": "start.js",
+  "license": "MIT",
+  "dependencies": {
+    "amqplib": "^0.5.5"
+  }
+}

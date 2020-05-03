@@ -1,0 +1,189 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Electron</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet"> -->
+    <script>
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+    <script src="../assets/js/vendor/jquery-1.11.3.min.js"></script>    
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/form.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/adminpro-custon-icon.css">
+    <link rel="stylesheet" href="../assets/css/meanmenu.min.css">
+    <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <link rel="stylesheet" href="../assets/css/jvectormap/jquery-jvectormap-2.0.3.css">
+    <link rel="stylesheet" href="../assets/css/data-table/bootstrap-table.css">
+    <link rel="stylesheet" href="../assets/css/data-table/bootstrap-editable.css">
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+    <link rel="stylesheet" href="../assets/css/c3.min.css">
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/dropzone.css">
+    <link rel="stylesheet" href="../assets/css/summernote.css">
+    <link rel="stylesheet" href="../assets/css/Lobibox.min.css">
+    <link rel="stylesheet" href="../assets/css/loginCss/pre-loader.css">
+
+<!--Tactical CSS-->
+    <link rel="stylesheet" href="../assets/css/tactical/leaflet.css" />
+    <link rel="stylesheet" href="../assets/css/tactical/layout.css" />
+    <link rel="stylesheet" href="../assets/css/tactical/mapbox-gl.css" />
+    
+
+    <script src="../assets/js/tactical/leaflet.js"></script>
+    <script src="../assets/js/tactical/mapbox-gl.js"></script>
+    <script src="../assets/js/tactical/leaflet-mapbox-gl.js"></script>
+
+
+    <script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../assets/js/angular.min.js"></script>
+    <script src="../assets/js/angularRoute.js"></script>
+    <script src="../assets/js/Lobibox.js"></script>
+    <script src="../assets/js/loki.min.js"></script>
+
+    <!-- LIST OF USERS IN A CONCLAVE -->
+    <!--<script type="text/json" src="../data/listOFAllUsers.js"></script>-->
+    <script type="text/json" src="../data//recentPanelData.json"></script>
+
+    
+    <style>
+        ::-webkit-scrollbar {
+            width: 4px;
+            /*Change*/
+            height: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.31);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #272727;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+
+</head>
+
+<body class="darklayout" ng-app="CoNPoL">
+     <div class="modal" id="preloader_index">
+        <div id="loader"></div>
+    </div>
+
+    <div class="wrapper-pro">
+
+        <!-- Sidebar Implementation -->
+        <div id="sidebarAngularTemplate" class="left-sidebar-pro" ng-controller="sidebarController">
+            <nav id="sidebar" class="active">
+                <div ng-include="'./staticContent/sidebar.html'"></div>
+            </nav>
+        </div>
+
+
+        <div class="content-inner-all">
+
+            <!-- Header top area start-->
+            <div id="headerAngularTemplate" class="" ng-controller="headerController">
+                <div ng-include="'./staticContent/header.html'"></div>
+            </div>
+            <!-- Header top area end-->
+            <!--<div class="breadcome-area mg-b-30 small-dn">
+            </div>-->
+
+
+            
+
+            <div ng-view></div>
+
+
+        </div>
+    </div>
+
+    <!-- Footer Start-->
+    <div id="footerAngularTemplate" class="" ng-controller="footerController">
+        <div ng-include="'./staticContent/footer.html'"></div>
+    </div>
+    <!-- Footer End-->
+
+
+    <!-- Chat Box Start-->
+    <div class="" ng-controller="iChatController">
+        <div ng-include="'./staticContent/iChat.html'"></div>
+    </div>
+    <!-- Chat Box End-->
+
+    <!-- Javascript Libraries  -->
+    <script src="../assets/js/handlebars-v4.0.12.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/jquery.meanmenu.js"></script>
+    <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../assets/js/jquery.sticky.js"></script>
+    <script src="../assets/js/jquery.scrollUp.min.js"></script>
+    <script src="../assets/js/wow/wow.min.js"></script>
+    <script src="../assets/js/counterup/jquery.counterup.min.js"></script>
+    <script src="../assets/js/counterup/waypoints.min.js"></script>
+    <script src="../assets/js/counterup/counterup-active.js"></script>
+    <script src="../assets/js/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="../assets/js/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="../assets/js/jvectormap/jvectormap-active.js"></script>
+    <script src="../assets/js/peity/jquery.peity.min.js"></script>
+    <script src="../assets/js/peity/peity-active.js"></script>
+    <script src="../assets/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="../assets/js/sparkline/sparkline-active.js"></script>
+    <script src="../assets/js/flot/jquery.flot.js"></script>
+    <script src="../assets/js/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="../assets/js/flot/jquery.flot.spline.js"></script>
+    <script src="../assets/js/flot/jquery.flot.resize.js"></script>
+    <script src="../assets/js/flot/jquery.flot.pie.js"></script>
+    <script src="../assets/js/flot/jquery.flot.symbol.js"></script>
+    <script src="../assets/js/flot/jquery.flot.time.js"></script>
+    <script src="../assets/js/flot/dashtwo-flot-active.js"></script>
+    <script src="../assets/js/data-table/bootstrap-table.js"></script>
+    <script src="../assets/js/data-table/tableExport.js"></script>
+    <script src="../assets/js/data-table/data-table-active.js"></script>
+    <script src="../assets/js/data-table/bootstrap-table-editable.js"></script>
+    <script src="../assets/js/data-table/bootstrap-editable.js"></script>
+    <script src="../assets/js/data-table/bootstrap-table-resizable.js"></script>
+    <script src="../assets/js/data-table/colResizable-1.5.source.js"></script>
+    <script src="../assets/js/data-table/bootstrap-table-export.js"></script>
+    <script src="../assets/js/dropzone.js"></script>
+    <script src="../assets/js/multiple-email/multiple-email-active.js"></script>
+    
+
+
+
+
+     <script src="../assets/js/summernote.min.js"></script> 
+    
+
+    
+    <!-- <script src="../assets/js/summernote.js"></script>
+    <script src="../assets/js/summernote-active.js"></script> -->
+    <script src="../assets/js/main.js"></script>
+
+    <div class="lobibox-notify-wrapper bottom right"></div>
+
+    <!--<script src="../controller/starters.js"></script>-->
+    <!-- <script src="../controller/dynamicController/allFunctions.js"></script> -->
+    <script src="../Services/angularRoutes.js"></script>
+    
+    <script>
+        if (window.module) module = window.module;
+    </script>
+</body>
+
+</html>

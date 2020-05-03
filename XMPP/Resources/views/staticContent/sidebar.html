@@ -1,0 +1,140 @@
+<!-- <div class="sidebar-header"> -->
+<!-- <a href="#/!">
+        <img src="../assets/img/logo/logo.png" alt="" />
+    </a> -->
+<!-- <h1 style="padding-left: 0px;">{{dedicatedLine}}</h1> -->
+<!-- <h3 style="margin-top:10px"></h3> -->
+<!-- {{username}}</h3> -->
+<!-- <label>COMMAND</label> 
+         <label>OP-COORDINATION NETWORK</label> -->
+<!-- <strong>CoN</strong> -->
+<!-- </div> -->
+<div class="left-custom-menu-adp-wrap">
+    <ul class="nav navbar-nav left-sidebar-menu-pro">
+
+        <!-- <li class="nav-item" data-toogle="tooltip" data-dispcement="right" title="Home">
+            <a ng-click="switchToINCSIS_Home()" role="button" aria-expanded="false" class="nav-link">
+                <img src="../assets/img/icon/home_icon.png" width="40px" height="auto">
+            </a>
+        </li> -->
+         <li class="nav-item sidebar_item" style="border-bottom: 1px solid #10192b;margin-top: 6px" data-toogle="tooltip"
+            data-dispcement="right" title="Tactical">
+           <!--tactical-->
+            <a href="#!tactical" class="nav-link">
+                <img src="../assets/img/svg/worldwide.svg" width="36px">
+            </a>
+            </a>
+        </li> 
+        <li class="nav-item sidebar_item" data-toogle="tooltip" data-dispcement="right" title="Dashboard">
+            <a href="#/!" class="nav-link">
+                <img src="../assets/img/svg/dashboard.svg" width="36px" height="auto">
+                <!-- <i class="fa big-icon fa-tachometer"></i> -->
+                <!-- <span class="mini-dn">Dashboard</span>
+                <span class="indicator-right-menu mini-dn"></span> -->
+            </a>
+        </li>
+        <li class="nav-item sidebar_item" data-toogle="tooltip" data-dispcement="right" title="Forums">
+            <a href="#!bulletinBoard" class="nav-link">
+                <img src="../assets/img/svg/forum.svg" width="36px" height="auto">
+                <!-- <i class="fa big-icon fa-newspaper-o"></i> -->
+                <!-- <span class="mini-dn">Bulletin Board</span>
+                <span class="indicator-right-menu mini-dn"></span> -->
+            </a>
+        </li>
+        <li class="nav-item sidebar_item" data-toogle="tooltip" data-dispcement="right" title="Chat">
+            <a href="#!chat" class="nav-link">
+                <img src="../assets/img/svg/chat.svg" width="36px" height="auto">
+                <!-- <i class="fa big-icon fa-comments-o"></i> -->
+                <!-- <span class="mini-dn">Chat</span>
+                <span class="indicator-right-menu mini-dn"></span> -->
+            </a>
+        </li>
+        <li class="nav-item sidebar_item" data-toogle="tooltip" data-dispcement="right" title="Email">
+            <a href="#!email_inbox" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                <img src="../assets/img/svg/email.svg" width="36px">            
+            </a>
+            <!--<div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                <a href="#!email_compose" class="dropdown-item">Compose</a>
+                <a href="#!email_inbox" class="dropdown-item">Inbox</a>
+                <a href="#!email_draft" class="dropdown-item">Draft</a>
+                <a href="#!email_sent" class="dropdown-item">Sent</a>
+                <a href="#!email_trash" class="dropdown-item">Trash</a>
+            </div>-->
+        </li>
+        <!--<li class="nav-item sidebar_item" data-toogle="tooltip" data-dispcement="right" title="Documents">
+            <a href="#!document" class="nav-link">
+                <img src="../assets/img/svg/folder.svg" width="36px">           
+            </a>
+        </li>-->
+        <div class="extra_options_sidebar" style="border-top: 1px solid #10192b;margin-top:8px">
+            <li class="nav-item sidebar_item" data-toogle="tooltip" data-dispcement="right" title="Profile">
+                <a href="#!profile">
+                    <!-- <span class="adminpro-icon adminpro-user-rounded author-log-ic"></span> -->
+                    <img src="../assets/img/svg/boss.svg" width="36px">
+                </a>
+            </li>
+            <li class="nav-item sidebar_item" data-toogle="tooltip" data-dispcement="right" title="Notifications">
+                <a id="notificationMessageHeader" ng-click="notificationMessageClicked()" data-toggle="dropdown"
+                    role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                    <span id="badgeHeaderMessageNotification">
+                        <img src="../assets/img/svg/bell.svg" width="36px">
+                        <i id="notificationBadge" class="fa fa-circle"></i>
+                    </span>
+                    <!-- <div ng-if="messageBadgeStatus == 1"> -->
+                    <!-- <span class="indicator-ms"></span> -->
+                </a>
+                <div role="menu" class="notification-author dropdown-menu animated flipInX"
+                    style="top:calc(100vh - 295px);position: fixed;left: 62px;width: 250px;">
+                    <div class="notification-single-top">
+                        <h1>Messages</h1>
+                    </div>
+                    <ul class="notification-menu">
+                        <div style="display: flex;flex-direction: column-reverse" id="headerMessageNotification">
+                            <div ng-repeat="nMData in notificationMessageData">
+                                <li>
+                                    <a>
+                                        <div class="notification-content" ng-if="nMData.messageType=='Forum'">
+
+                                            <span class="notification-date">{{nMData.time}}</span>
+                                            <span class="label label-warning">{{nMData.sendTo}}</span>
+                                            <div><i>{{nMData.sender}}</i></div>
+                                            <div>{{nMData.message}}</div>
+
+                                        </div>
+                                        <div class="notification-content" ng-if="nMData.messageType=='Chat'">
+                                            <span class="notification-date">{{nMData.time}}</span>
+                                            <span class="label label-success">{{nMData.messageType}}</span>
+                                            <div><i>{{nMData.sender}}</i></div>
+                                            <div>{{nMData.message}}</div>
+
+                                        </div>
+
+                                    </a>
+                                </li>
+
+                            </div>
+                        </div>
+
+                    </ul>
+                    <!-- <div class="notification-view">
+                        <a href="/">View All Messages</a>
+                    </div> -->
+                </div>
+            </li>
+            
+           <li class="nav-item sidebar_item" data-toogle="tooltip" data-dispcement="right" title="Refresh">
+                <a ng-click="headerRefresh()" role="button" aria-expanded="false" class="nav-link">
+                    <img src="../assets/img/icon/refresh_icon.png" width="36px" height="auto">
+                    <!-- <i class="fa fa-sign-out" aria-hidden="true"></i> -->
+                </a>
+            </li>
+
+             <li class="nav-item sidebar_item" data-toogle="tooltip" data-dispcement="right" title="Logout">
+                <a ng-click="headerLogout()" role="button" aria-expanded="false" class="nav-link">
+                    <img src="../assets/img/svg/arrow.svg" width="36px" height="auto">
+                    <!-- <i class="fa fa-sign-out" aria-hidden="true"></i> -->
+                </a>
+            </li>
+        </div>
+    </ul>
+</div>

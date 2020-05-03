@@ -1,0 +1,100 @@
+<div class="angularContentArea" style="background-color: black" ng-controller="profileController">
+
+    <div class="login-form-area mg-t-30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <form id="adminpro-contact-form" class="adminpro-form" novalidate="novalidate">
+                    <div class="col-lg-10" style="margin-top: 10px">
+                        <div class="login-bg">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="login-title">
+                                        <h1>{{username}}</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="col-md-4">
+                                        <div class="login-input-head">
+                                            <p class="profileEntityTitle">Unit</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="login-input-area register-mg-rt">
+                                            <input type="text" name="text" disabled value="{{unit}}">
+                                            <i class="fa fa-anchor login-user"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <div class="login-input-head">
+                                                <p class="profileEntityTitle">Task Force</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="login-input-area register-mg-rt">
+                                                <input type="text" name="text" disabled value="{{taskForceGroups[0].name}}">
+                                              </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="col-md-4">
+                                        <div class="login-input-head">
+                                            <p class="profileEntityTitle">Conclave</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="login-input-area register-mg-rt">
+                                            <input type="text" name="text" disabled value="{{conclave}}">
+                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <div class="login-input-head">
+                                                <p class="profileEntityTitle">Forum</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="profileEntityTitle_tfgOption_cgOption">
+                                                <div>
+                                                    <option ng-selected="{{tfg.Name == 'No Conclave Group'}}" ng-repeat="tfg in taskForceGroups">{{tfg.name}}</option>
+                                                </div>
+                                                <div>
+                                                    <option ng-selected="{{cg.Name == 'No Conclave Group'}}" ng-repeat="cg in conclaveGroups">{{cg.name}}</option>
+                                                </div>
+                                            </select>
+                                        </div>
+                                </div>
+                            </div>
+
+                     
+                    </div>
+                </form>
+                <div class="col-lg-1"></div>
+                
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div style="text-align: center;margin-top: calc(100vh - 500px);">
+                    
+        <div class="btn btn-primary update_user_list" onclick="updateUserList()">
+            <img src="../assets/img/svg/user.svg" width="15px">
+            Update User List
+        </div>
+                    
+        <!--<img src="../assets/img/logo/tancLogo.png" alt="WESEE TANC" width="200" height="120">-->
+        <img width="200" height="120">
+    </div>
+
+</div>

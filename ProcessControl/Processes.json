@@ -1,0 +1,10 @@
+[{
+    "processName":"Start Gateway Jar",
+    "exeCommand":"ping localhost -t",
+    "delay":10
+},
+{
+    "processName":"Start Eureka Jar",
+    "exeCommand":"ping localhost -t",
+    "delay":5
+}]

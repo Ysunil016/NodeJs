@@ -1,0 +1,9 @@
+{
+  "name": "ProcessControl",
+  "version": "1.0.0",
+  "description": "Process Control for Common Operations",
+  "main": "start.js",
+  "author": "Sunil",
+  "license": "MIT",
+  "private": true
+}

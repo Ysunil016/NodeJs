@@ -1,0 +1,195 @@
+
+body, html {
+    height: auto;
+    background: transparent;
+}
+.loginArea{
+padding: 20px;  
+}
+
+
+.btn {
+    font-weight: 700;
+    height: 36px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+/*
+ * Card component
+ */
+.card {
+    height: 350px;
+    width: 250px;
+    text-align: center;
+    background-color: rgba(14, 23, 14, 0.26);
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin:calc(100vh - 600px) 25px auto auto;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 10px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.bind_unit{
+    color:rgb(235, 239, 21);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.profile-img-card {
+    width: 80px;
+    height: 120px;
+    margin: 4px auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 30%;
+}
+
+/*
+ * Form styles
+ */
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.reauth-email {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+    height: 36px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+
+.btn.btn-signin {
+    /*background-color: #4d90fe; */
+    background-color: rgb(104, 145, 162);
+    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
+}
+
+.btn.btn-signin:hover,
+.btn.btn-signin:active,
+.btn.btn-signin:focus {
+    background-color: rgb(12, 97, 33);
+}
+
+.forgot-password {
+    color: rgb(225, 248, 255);
+    font-size: 14px;
+    font-style: italic
+}
+
+.forgot-password:hover,
+.forgot-password:active,
+.forgot-password:focus{
+    color: rgb(184, 204, 223);
+}
+
+.additionalIncisFeatures{
+	    bottom: 10px;
+    position: absolute;
+}
+.additionalIncisFeatures button{
+	background:transparent;
+border-radius:25%;
+	
+}
+
+.animationToPasswordField{
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    padding:10px;
+    position: relative;
+    -webkit-animation-name: passwordAnimate; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-direction: reverse; /* Safari 4.0 - 8.0 */
+    animation-name: passwordAnimate;
+    animation-duration: 0.4s;
+    animation-direction: reverse;  
+  }
+  
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes passwordAnimate {
+    0%   {left:0px; top:0px;}
+    10%  {left:10px; top:0px;}
+    20%  {left:20px; top:0px;}
+    30%  {left:30px; top:0px;}
+    40%  {left:40px; top:0px;}
+    50%  {left:50px; top:0px;}
+    60%  {left:60px; top:0px;}
+    70%  {left:70px; top:0px;}
+    80%  {left:80px; top:0px;}
+    90%  {left:90px; top:0px;}
+    100% {left:100px; top:0px;}
+  }
+  
+  /* Standard syntax */
+  @keyframes passwordAnimate {
+    0%   {left:0px; top:0px;}
+    10%  {left:10px; top:0px;}
+    20%  {left:20px; top:0px;}
+    30%  {left:30px; top:0px;}
+    40%  {left:40px; top:0px;}
+    50%  {left:50px; top:0px;}
+    60%  {left:60px; top:0px;}
+    70%  {left:70px; top:0px;}
+    80%  {left:80px; top:0px;}
+    90%  {left:90px; top:0px;}
+    100% {left:100px; top:0px;}
+  }

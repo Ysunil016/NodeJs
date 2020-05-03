@@ -1,0 +1,261 @@
+<script id="clientInfoTemplate" type="text/x-handlebars-template">
+    <div class="income-dashone-total shadow-reset nt-mg-b-30" style="margin-top:10px">
+        <div class="income-title">
+            <div class="main-income-head">
+                <h2>{{unit}}</h2>
+                <div class="main-income-phara">
+                    <p style="background: none"><img src="../assets/img/flags/India.png" width="20px"></p>
+                </div>
+            </div>
+        </div>
+        <div class="mg-b-22"></div>
+        <div class="income-title">
+            <div class="main-income-head">
+                <h2>Force</h2>
+                <div class="main-income-phara">
+                    <p>{{force}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="mg-b-22"></div>
+        <div class="income-title" id="taskForceGroupOnDashboard">
+            <div class="main-income-head">
+                <h2>Task Group</h2>
+                <div ng-if="taskForce" class="main-income-phara">
+                    <p data-toggle="modal" data-target="#tfgMapView" ng-click="getTFGMapView()">{{taskForce}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</script>
+<script id="taskForceParticipantTemplate" type="text/x-handlebars-template">
+    {{#each []}}
+    <label id="{{[]}}" class="label">{{[]}}</label>
+    {{/each}}
+</script>
+<script id="forumTemplate" type="text/x-handlebars-template">
+    <div class="forum_dashboard_card external_card">
+    <div class="forum_container">
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h4><b>{{taskForce}}</b></h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</script>
+
+
+<div class="angularContentArea" ng-controller="dashboardController">
+    <!-- Breadcome start-->
+    <div class="breadcome-area des-none mg-b-60">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcome-list map-mg-t-40-gl shadow-reset">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcome End-->
+    <!-- income order visit user Start -->
+    <div class="dynamic_page_header_dashboard">
+        <div>
+            <span>
+                <img src="../assets/img/icon/dashboard_icon.png" width="30px">
+                Dashboard
+            </span>
+        </div>
+    </div>
+    <div class="income-order-visit-user-area" id="dashboardRegion" style="height: calc(100vh - 180px);">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 clientInfoContainer">
+                    <div class="income-dashone-total shadow-reset nt-mg-b-30" style="margin-top:10px">
+                        <div class="income-title">
+                            <div class="main-income-head">
+                                <h2>NA</h2>
+                                <div class="main-income-phara">
+                                    <!--<p>{{unitName}}</p>-->
+                                    <p style="background: none"><img src="../assets/img/flags/India.png" width="20px">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mg-b-22"></div>
+                        <div class="income-title">
+                            <div class="main-income-head">
+                                <h2>Force</h2>
+                                <div class="main-income-phara">
+                                    <p>NA</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mg-b-22"></div>
+                        <div class="income-title" id="taskForceGroupOnDashboard">
+                            <div class="main-income-head">
+                                <h2>Task Group</h2>
+                                <div ng-if="NA" class="main-income-phara">
+                                    <p data-toggle="modal" data-target="#tfgMapView" ng-click="getTFGMapView()">
+                                        NA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="income-dashone-total shadow-reset nt-mg-b-30">
+                        <div class="income-title">
+                            <div class="main-income-head">
+                                <h2>Participant</h2>
+                            </div>
+                        </div>
+                        <div class="income-dashone-pro dashboard_participants taskForceParticipantContainer">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="income-dashone-total shadow-reset nt-mg-b-30">
+                        <div class="income-title">
+                            <div class="main-income-head">
+                                <h2 style="text-align:center;">
+                                    <img style="float:left" src="../assets/img/icon/forum_icon.png" width="30px">Forums
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="income-dashone-pro dashboard_forums">
+
+                            <div class="row forumContainer" style="display: inline-flex">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+                    <div class="income-dashone-total shadow-reset nt-mg-b-30">
+                        <div class="income-title">
+                            <div class="main-income-head">
+                                <h2 style="text-align:center;">
+                                    <img style="float:left" src="../assets/img/icon/globe.png" width="25px">GPS
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="income-dashone-pro">
+                            <div class="income-range">
+                                <p>Latitude</p>
+                                <span class="income-percentange">78.490525</span>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="income-range">
+                                <p>Longitude</p>
+                                <span class="income-percentange">22.400872</span>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="income-range">
+                                <p>Temperature (C)</p>
+                                <span class="income-percentange">23</span>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="income-range">
+                                <p>Course</p>
+                                <span class="income-percentange">10</span>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="income-range">
+                                <p>Speed</p>
+                                <span class="income-percentange">78</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+            <div class="row recentActivityInDashBoard">
+                <div class="sparkline11-list shadow-reset">
+                    <div class="sparkline11-hd income-title">
+                        <div class="main-sparkline11-hd">
+                            <h1 class="label" style="font-weight: 100;">Recent Activities</h1>
+                            <span class="float-right" ng-click="clearRecentActivity()">.</span>
+                        </div>
+                    </div>
+                    <div id="collapseBBNotification"
+                        class="sparkline11-graph dashone-comment dashtwo-comment border-corner"
+                        style="overflow-y: auto;height: calc(100vh - 440px);">
+                        <div class="reverse_column" id="bulletinBoardPanel">
+                            <div ng-repeat="notiData in notificationData">
+                                <div class="comment-phara ">
+                                    <div class="comment-adminpr">
+                                        <span class="dashtwo-messsage-title notificationChatOption">
+                                            <span ng-if="notiData.messageType == 'Chat'"
+                                                ng-click="userSelectedForChat(notiData.sender)">
+                                                <span class="label label-success panel_notification_label">
+                                                    {{notiData.messageType}} </span>
+                                                <div class="panel_notification_content">
+                                                    <span
+                                                        class="panel_notification_content_sendTo">{{notiData.sender}}</span>
+                                                    <span
+                                                        class="panel_notification_content_message">{{notiData.message}}</span>
+                                                    <span
+                                                        class="panel_notification_content_time">{{notiData.time}}</span>
+                                                </div>
+
+
+                                            </span>
+                                            <span ng-if="notiData.messageType == 'Forum'">
+                                                <span
+                                                    class="label dashboard_forum_notification panel_notification_label">
+                                                    {{notiData.sendTo}} Forum </span>
+                                                <div class="panel_notification_content">
+                                                    <span
+                                                        class="panel_notification_content_sender">{{notiData.sender}}</span>
+                                                    <!-- <span class="panel_notification_content_sendTo">{{notiData.sendTo}}</span> -->
+                                                    <span
+                                                        class="panel_notification_content_message">{{notiData.message}}</span>
+                                                    <span
+                                                        class="panel_notification_content_time">{{notiData.time}}</span>
+                                                </div>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
+
+    <!-- Modal -->
+    <div class="modal fade" id="tfgMapView" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center">Task Force Group Units</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="con_tfg_map" style="height: calc(100vh - 200px);border-radius: 4px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script>
+        var tfgLength = loginObject.TFG_FORCES.length;
+        if (tfgLength > 1) {
+            document.getElementById('taskForceGroupOnDashboard').style.display = "none";
+        }
+    </script> -->
+</div>

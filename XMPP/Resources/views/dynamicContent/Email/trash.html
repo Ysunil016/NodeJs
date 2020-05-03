@@ -1,0 +1,162 @@
+<script id="trashDataFromDatabase" type="text/x-handlebars-template">
+    {{#each []}}
+<div class="new-email" data-index="0" id="{{uuid}}">
+		<span class="emailCheck"><input onclick="emailItemCheck('{{uuid}}')" type="checkbox"></span>
+        <div onclick="viewTrashMail('{{uuid}}')">
+		<span class="sender">{{from}} {{sender}}</span>
+		<span class="content">{{subject}}</span>
+		<span class="time">{{time}}</span>
+        </div>        
+</div>
+{{/each}}
+</script>
+
+<script id="viewMailTemplate" type="text/x-handlebars-template">
+    <div id="viewmail" class="tab-pane fade in animated zoomInDown shadow-reset custom-inbox-message active">
+            <div class="view-mail-wrap">
+                <div class="mail-title">
+                    <h2>Trash Message</h2>
+                    <div class="view-mail-action">
+                        <!-- <a><i class="fa fa-reply"></i> Reply</a> -->
+                    </div>
+                </div>
+                <div class="main-title-hd">
+                    <h3>Subject: <span class="main-title-view">{{subject}}</span></h3>
+                </div>
+                <div class="view-author-mail">
+                    <span>From: <span class="view-mail-email">{{sendTo}}</span></span>
+                    <span class="view-mail-date">{{time}}</span>
+                </div>
+                <div class="view-mail-content">
+                        {{{content}}}
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="view-mail-reply-list">
+                            <ul class="view-mail-forword">
+                                <!-- <li><a href="#"><i class="fa fa-reply"></i> Reply</a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-reply"></i> Forward</a>
+                                </li> -->
+                                <!-- <li><a class="compose-draft-bt" href="javascript:window.print()"><i class="fa fa-print"></i> Print</a>
+                                </li> -->
+                                 <li>
+                                <a onclick="deleteMailPermanently('{{uuid}}')" class="compose-discard-bt"><i class="fa fa-trash-o"></i> Delete Permanently</a>                                     
+                                     </li> 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</script>
+
+
+<div class="angularContentArea" ng-controller="trashController">
+    <div class="dynamic_page_header_email">
+        <div>
+            <span>
+                <img src="../assets/img/icon/email_icon.png" width="30px">
+                Email
+            </span>
+            <div class="options">
+                <a href="#!email_compose" data-toogle="tooltip" data-dispcement="down" title="Compose"><i class="fa fa-plus"></i></a>
+                <a href="#!email_inbox" data-toogle="tooltip" data-dispcement="down" title="Inbox"><i class="fa fa-inbox"></i></a>
+                <a href="#!email_draft" data-toogle="tooltip" data-dispcement="down" title="Draft"><i class="fa fa-file-o"></i></a>
+                <a href="#!email_sent" data-toogle="tooltip" data-dispcement="down" title="Sent"><i class="fa fa-send"></i></a>
+                <a href="#!email_trash" data-toogle="tooltip" data-dispcement="down" title="Trash"><i class="fa fa-trash"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="inbox-mailbox-area mg-b-15">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="tab-content">
+                                <div id="trash"
+                                    class="tab-pane fade animated zoomInDown shadow-reset custom-inbox-message active in border-corner">
+                                    <div class="mail-title inbox-bt-mg">
+                                        <h2>Trash</h2>
+                                        <div class="view-mail-action view-mail-ov-d-n">
+                                            <a onclick="deleteItemsFromTrash()" class="compose-discard-bt" href=""><i
+                                                    class="fa fa-trash-o"></i>
+                                                Trash</a>
+                                        </div>
+
+                                    </div>
+                                    <div class="datatable-dashv1-list custom-datatable-overright">
+
+                                        <div class="bootstrap-table">
+                                            <div class="fixed-table-container"
+                                                style="padding-bottom: 0px;height: calc(100vh - 270px);">
+                                                <div class="fixed-table-header" style="display: none;">
+                                                    <table></table>
+                                                </div>
+                                                <div class="fixed-table-body" style="overflow-x: hidden">
+                                                    <div class="fixed-table-loading" style="top: 1px;">Loading, please
+                                                        wait...</div>
+                                                    <div class="JCLRgrips" style="width: 100px;"></div>
+                                                    <table id="table7" data-toggle="table" data-pagination="true"
+                                                        data-search="true" data-show-columns="true"
+                                                        data-show-pagination-switch="true" data-show-refresh="true"
+                                                        data-key-events="true" data-show-toggle="true"
+                                                        data-resizable="true" data-cookie="true"
+                                                        data-cookie-id-table="saveId" data-show-export="true"
+                                                        data-click-to-select="true" data-toolbar="#toolbar7"
+                                                        class="table table-hover JColResizer">
+                                                        <!--<thead style="">
+                                                            <tr>
+                                                                <th style="width: 5px;" data-field="complete"
+                                                                    tabindex="0">
+                                                                    <div class="th-inner "></div>
+                                                                    <div class="fht-cell"></div>
+                                                                </th>
+                                                                <th style="width: 90px;" data-field="name" tabindex="0">
+                                                                    <div class="th-inner ">Sender</div>
+                                                                    <div class="fht-cell"></div>
+                                                                </th>
+                                                                <th style="width: 303px;" data-field="email"
+                                                                    tabindex="0">
+                                                                    <div class="th-inner ">Mail</div>
+                                                                    <div class="fht-cell"></div>
+                                                                </th>
+                                                                <th style="width: 179px;" data-field="phone"
+                                                                    tabindex="0">
+                                                                    <div class="th-inner ">Time</div>
+                                                                    <div class="fht-cell"></div>
+                                                                </th>
+                                                            </tr>
+                                                        </thead>-->
+                                                        <tbody class="areaForTrashDataFromDatabase reverse_column">
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="trash-email-region"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="documentViewModel" class="modal">
+        <div class="email-modal-content showEmailModelContent"></div>
+        <span class="emailViewCloseDocViewModel">&times;</span>
+    </div>
+
+    <!-- 
+    <script src="assets/js/multiple-email/multiple-email-active.js"></script> -->
+
+</div>

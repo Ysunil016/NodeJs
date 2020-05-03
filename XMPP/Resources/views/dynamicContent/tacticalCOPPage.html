@@ -1,0 +1,120 @@
+<style>
+
+.results tr[visible='false'],
+.no-result{
+  display:none;
+}
+
+.results tr[visible='true']{
+  display:table-row;
+}
+
+.counter{
+  padding:8px; 
+  color:#ccc;
+}
+
+tr:after {
+    clear: both;
+    content: ' ';
+    display: block;
+    visibility: hidden;
+}
+
+thead, tbody{
+    display: block;
+}
+
+thead th {
+    height: 30px;
+}
+
+tbody {
+    overflow-y: auto;
+    height: calc(100vh - 246px);
+}
+
+</style>
+
+<script id="tacticalCOPTrack" type="text/x-handlebars-template">
+    {{#each []}}
+    <tr class="row">
+      <th class="col-md-2 col-xs-2" scope="row">{{rep_unit_name}}</th>
+      <td class="col-md-2 col-xs-2">{{latitude}}</td>
+      <td class="col-md-2 col-xs-2">{{longitude}}</td>
+      <td class="col-md-1 col-xs-1">{{course}}</td>
+      <td class="col-md-1 col-xs-1">{{speed}}</td>  
+      <td class="col-md-1 col-xs-1">{{height_depth}}</td>
+      <td class="col-md-1 col-xs-1">{{time}}</td>
+      <td class="col-md-2 col-xs-2">{{date}}</td>                                      
+    </tr>
+    {{/each}}
+</script>
+
+
+
+<div class="angularContentArea" ng-controller="tacticalCOPPageController">
+    
+<div class="back_to_tactical">
+    <a href="#!/tactical" class="label label-warning fa fa-arrow-left">&nbsp;Back to Tactical</a>
+</div>
+<div class="form-group pull-right" style="margin-bottom: 18px">
+    <input type="text" class="search form-control" placeholder="What you looking for?">
+</div>
+<span class="counter pull-right"></span>
+<table class="table table-hover table-bordered results table-fixed">
+  <thead>
+    <tr class="row">
+      <th class="col-md-2 col-xs-2">Reporting Unit</th>
+      <th class="col-md-2 col-xs-2">Latitude</th>
+      <th class="col-md-2 col-xs-2">Longitude</th>
+      <th class="col-md-1 col-xs-1">Course</th>
+      <th class="col-md-1 col-xs-1">Speed</th>     
+      <th class="col-md-1 col-xs-1">Height/Depth</th> 
+      <th class="col-md-1 col-xs-1">Time</th>
+      <th class="col-md-2 col-xs-2">Date</th>               
+    </tr>
+    <!--<tr class="warning no-result">
+      <td colspan="6"><i class="fa fa-warning"></i> No result</td>
+    </tr>-->
+  </thead>
+  <tbody class="areaForTacticalCOPTrack">
+  
+  </tbody>
+</table>                       
+
+<script>
+
+$(document).ready(function() {
+  $(".search").keyup(function () {
+    var searchTerm = $(".search").val();
+    var listItem = $('.results tbody').children('tr');
+    var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+    
+  $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+        return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+    }
+  });
+
+  $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+    $(this).attr('visible','false');
+  });
+
+  $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+    $(this).attr('visible','true');
+  });
+
+  var jobCount = $('.results tbody tr[visible="true"]').length;
+    $('.counter').text(jobCount + ' item');
+
+//   if(jobCount == '0') {$('.no-result').show();}
+//     else {$('.no-result').hide();}
+
+    // if(jobCount == '0') {$('.no-result').show();}
+    // else {$('.no-result').hide();}
+    });
+});
+
+</script>
+
+</div>

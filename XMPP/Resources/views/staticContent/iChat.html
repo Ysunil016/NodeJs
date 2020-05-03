@@ -1,0 +1,154 @@
+<script id="templateForIChat" type="text/x-handlebars-template">
+<div class="chat-content" id="iChatContentForScroll_{{chatUser}}" style=" overflow-y: auto;overflow-x:  hidden;height: 260px">
+    {{#each messages}}
+    
+    {{#if me}}
+    {{#if normal}}
+    <div class="author-chat">
+        <h3 style="display: none">{{sender}}
+        </h3>
+             <div class="row">{{message}}
+             <label class="chat_time">{{time}}</label>
+            </div>
+    </div>
+    {{else if reply}}
+            <div class="author-chat iChatSendReplySection">
+                
+                 <div class="row">
+                        <h3>{{repliedTo.sender}}
+                            </h3> 
+                    {{repliedTo.message}}
+                 <label class="chat_time">{{repliedTo.time}}</label>
+                
+                 <span class="messageData">
+                        <i style="display: none" class="messageSender">{{sender}}</i>
+                        <i class="message">{{message}}</i>
+                        <i class="messageTime">{{time}}</i>
+                        </span>
+                </div>
+                
+            </div>
+           
+
+    {{/if}}
+    {{else}}
+    {{#if normal}}
+    <div class="client-chat">
+        <h3>{{sender}}
+        </h3>
+        <div class="row">{{message}}
+        <label class="chat_time">{{time}}</label>
+    </div>
+    </div>
+    {{else if reply}}
+    <div class="client-chat iChatRecReplySection">
+            <h3>{{repliedTo.sender}}
+            </h3>
+                 <div class="row">{{repliedTo.message}}
+                 <label class="chat_time">{{repliedTo.time}}</label>
+                 <span class="messageData">
+                 <i class="messageSender">{{sender}}</i>
+                 <i class="message">{{message}}</i>
+                 <i class="messageTime">{{time}}</i>
+                </span>
+                </div>
+            </div>
+
+    {{/if}}
+    {{/if}}
+    {{/each}}
+    <!-- <div class="author-chat">
+        <h3>RANA_SCO
+        </h3>
+             <div class="row">Message is Here sakjbd dsajkbdsa askjdbsakdjbsajkbd asjkbasdjkbsadjkba askjdbaskjdb askdjbasdkjb
+             <label class="chat_time">23-12-18 at 12:23</label>
+            </div>
+    </div>
+    <div class="client-chat">
+            <h3>KOCHI_FLO
+            </h3>
+            <div class="row">Received Message Bro
+            <label class="chat_time">23-12-18 at 12:23</label>
+        </div>
+        </div> -->
+</div>
+
+<div class="chat-send" id="iChatOpenFor_{{chatUser}}">
+    <input type="text" placeholder="Type..." id="messageTypedInIChatBar"/>
+    <span>
+        <button type="submit" id="iChatSendButton" onclick="sendingMessageForIChat('{{chatUser}}')" autofocus >Send</button>
+    </span>
+</div>
+
+
+
+<script>
+    //HANDLING ENTER KEY PRESSED
+    $('#messageTypedInIChatBar').keypress(function (e) {
+        if (e.keyCode == '13') {
+            $('#iChatSendButton').click();
+        }
+        e.stopPropagation()
+    })
+</script>
+
+
+
+
+
+</script>
+
+<div class="chat-list-wrap">
+    <div class="chat-list-adminpro">
+        <div class="chat-button">
+            <span data-toggle="collapse" data-target="#chat" class="chat-icon-link">
+                <i class="fa fa-comments"></i>
+            </span>
+        </div>
+        <div id="chat" class="collapse chat-box-wrap shadow-reset animated zoomInLeft">
+            <div class="chat-main-list">
+                <div class="chat-heading">
+                    <!-- "tabl-d-n" class Removed-->
+                    <div class="header-top-menu">
+                        <ul class="nav navbar-nav mai-top-nav" style="float:none;">
+                            <li class="nav-item dropdown" style="width:100%;background-color:#393939">
+                                <a href="" data-toggle="dropdown" role="button" aria-expanded="false"
+                                    class="nav-link dropdown-toggle">
+                                    <b>Online Users</b> &nbsp;&nbsp;
+                                    <span class="angle-down-topmenu">
+                                        <i class="fa fa-angle-down"></i>
+                                        <div class="label pull-right" id="clickedOnlineUser"></div>
+                                    </span>
+                                </a>
+                                <div role="menu" class="chat-scrollbar dropdown-menu animated flipInX"
+                                    style="max-height:200px;margin-left: -160px;">
+                                    <div id="onlineUsersAreaForIChat">
+                                        <!-- <a ng-click="onlineClickedUsers((user))" class="dropdown-item">{{user}} &nbsp;
+                                            <i style="color:green" class="fa fa-dot-circle-o"></i>
+                                        </a> -->
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+
+
+
+
+
+                    </div>
+
+                    <div class="iChatAreaHere">
+
+
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
