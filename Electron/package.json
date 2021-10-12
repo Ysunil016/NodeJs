@@ -12,7 +12,7 @@
     "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"IN_Domain\""
   },
   "dependencies": {
-    "electron": "^9.4.0",
+    "electron": "^11.5.0",
     "electron-packager": "^14.2.1"
   }
 }
